@@ -1,0 +1,46 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.10)
+
+2026-02-18T23:49:37.802+05:30  INFO 24788 --- [noticeboard] [           main] c.t.noticeboard.NoticeboardApplication   : Starting NoticeboardApplication v0.0.1-SNAPSHOT using Java 21.0.10 with PID 24788 (C:\Users\Gopinath\Downloads\noticeboard11\target\noticeboard-0.0.1-SNAPSHOT.jar started by Gopinath in C:\Users\Gopinath\Downloads\noticeboard11)
+2026-02-18T23:49:37.806+05:30  INFO 24788 --- [noticeboard] [           main] c.t.noticeboard.NoticeboardApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-02-18T23:49:39.284+05:30  INFO 24788 --- [noticeboard] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-18T23:49:39.371+05:30  INFO 24788 --- [noticeboard] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 2 JPA repository interfaces.
+2026-02-18T23:49:40.725+05:30  INFO 24788 --- [noticeboard] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-02-18T23:49:40.778+05:30  INFO 24788 --- [noticeboard] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-18T23:49:40.779+05:30  INFO 24788 --- [noticeboard] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.50]
+2026-02-18T23:49:40.872+05:30  INFO 24788 --- [noticeboard] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-02-18T23:49:40.875+05:30  INFO 24788 --- [noticeboard] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3001 ms
+2026-02-18T23:49:41.397+05:30  INFO 24788 --- [noticeboard] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-18T23:49:41.544+05:30  INFO 24788 --- [noticeboard] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.41.Final
+2026-02-18T23:49:41.600+05:30  INFO 24788 --- [noticeboard] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-02-18T23:49:42.416+05:30  INFO 24788 --- [noticeboard] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-18T23:49:42.475+05:30  INFO 24788 --- [noticeboard] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-02-18T23:49:42.695+05:30  INFO 24788 --- [noticeboard] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@29892a77
+2026-02-18T23:49:42.702+05:30  INFO 24788 --- [noticeboard] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-02-18T23:49:42.752+05:30  WARN 24788 --- [noticeboard] [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-18T23:49:42.753+05:30  WARN 24788 --- [noticeboard] [           main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-02-18T23:49:42.775+05:30  INFO 24788 --- [noticeboard] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-18T23:49:43.687+05:30  INFO 24788 --- [noticeboard] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-18T23:49:43.751+05:30  INFO 24788 --- [noticeboard] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-18T23:49:44.256+05:30  INFO 24788 --- [noticeboard] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2026-02-18T23:49:44.343+05:30  INFO 24788 --- [noticeboard] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-18T23:49:45.563+05:30  WARN 24788 --- [noticeboard] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-18T23:49:45.648+05:30  INFO 24788 --- [noticeboard] [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2026-02-18T23:49:47.422+05:30  WARN 24788 --- [noticeboard] [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2026-02-18T23:49:47.422+05:30  INFO 24788 --- [noticeboard] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-18T23:49:47.442+05:30  INFO 24788 --- [noticeboard] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-02-18T23:49:47.462+05:30  INFO 24788 --- [noticeboard] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
