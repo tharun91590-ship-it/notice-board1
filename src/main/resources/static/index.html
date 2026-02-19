@@ -2756,6 +2756,17 @@
         let userRole = null; // PRINCIPAL/HOD/PLACEMENT/EXAMCELL/EVENTS/HOSTEL/LIBRARY/SPORTS/PUBLIC
         let currentUserEmail = null;
         const PUBLISH_ROLES = ['PRINCIPAL', 'HOD', 'PLACEMENT', 'EXAMCELL', 'EVENTS', 'HOSTEL', 'LIBRARY', 'SPORTS'];
+        const SAVED_NOTICE_LIMIT_BY_ROLE = {
+            PRINCIPAL: 3000,
+            HOD: 1500,
+            PLACEMENT: 1500,
+            EXAMCELL: 1500,
+            EVENTS: 1500,
+            HOSTEL: 1500,
+            LIBRARY: 1500,
+            SPORTS: 1500,
+            PUBLIC: 500
+        };
 
         // Drafts stored in localStorage (not synced with backend)
         let draftData = loadDraftData();
@@ -2897,18 +2908,29 @@
             return `savedNoticeIds:${role}:${email}`;
         }
 
+        function getSavedLimitForCurrentRole() {
+            const role = (userRole || 'PUBLIC').toUpperCase();
+            return SAVED_NOTICE_LIMIT_BY_ROLE[role] || SAVED_NOTICE_LIMIT_BY_ROLE.PUBLIC;
+        }
+
         function loadSavedNoticeIds() {
             try {
                 const raw = localStorage.getItem(getSavedStorageKey());
                 const parsed = raw ? JSON.parse(raw) : [];
                 if (!Array.isArray(parsed)) return [];
-                return Array.from(new Set(parsed.map(v => Number(v)).filter(v => Number.isFinite(v))));
+                const uniqueIds = Array.from(new Set(parsed.map(v => Number(v)).filter(v => Number.isFinite(v))));
+                const roleLimit = getSavedLimitForCurrentRole();
+                return uniqueIds.slice(0, roleLimit);
             } catch (_) {
                 return [];
             }
         }
 
         function persistSavedNoticeIds() {
+            const roleLimit = getSavedLimitForCurrentRole();
+            if (savedNoticeIds.length > roleLimit) {
+                savedNoticeIds = savedNoticeIds.slice(0, roleLimit);
+            }
             localStorage.setItem(getSavedStorageKey(), JSON.stringify(savedNoticeIds));
             updateSavedCountUI();
         }
@@ -3040,6 +3062,12 @@
             if (isNoticeSaved(numId)) {
                 savedNoticeIds = savedNoticeIds.filter(v => v !== numId);
             } else {
+                const roleLimit = getSavedLimitForCurrentRole();
+                if (savedNoticeIds.length >= roleLimit) {
+                    const roleName = (userRole || 'PUBLIC').toUpperCase();
+                    alert(`Saved notices limit reached for ${roleName}. Max allowed: ${roleLimit}`);
+                    return;
+                }
                 savedNoticeIds.push(numId);
             }
             persistSavedNoticeIds();
